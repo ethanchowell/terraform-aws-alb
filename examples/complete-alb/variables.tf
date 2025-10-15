@@ -3,3 +3,9 @@ variable "domain_name" {
   type        = string
   default     = "terraform-aws-modules.modules.tf"
 }
+
+variable "aws_region" {
+  description = "The AWS Region to target"
+  type        = string
+  default     = "eu-west-1"
+}

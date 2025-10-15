@@ -5,7 +5,7 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-  region = "eu-west-1"
+  region = var.aws_region
   name   = "ex-${basename(path.cwd)}"
 
   vpc_cidr = "10.0.0.0/16"
@@ -544,7 +544,8 @@ module "vpc" {
 }
 
 data "aws_route53_zone" "this" {
-  name = var.domain_name
+  name         = var.domain_name
+  private_zone = true
 }
 
 module "acm" {
